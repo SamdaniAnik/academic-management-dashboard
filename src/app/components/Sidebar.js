@@ -41,7 +41,7 @@ export default function Sidebar() {
 			<List>
 				{menuItems.map((item) => (
 					<Link key={item.text} href={item.path} style={{ textDecoration: "none", color: "inherit" }}>
-						<ListItem button selected={pathname === item.path}>
+						<ListItem button="true" selected={pathname === item.path}>
 							<ListItemIcon>{item.icon}</ListItemIcon>
 							{open && <ListItemText primary={item.text} />}
 						</ListItem>
