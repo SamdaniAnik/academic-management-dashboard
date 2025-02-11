@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Container, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Pagination } from "@mui/material";
+import { Container, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Pagination, Button } from "@mui/material";
 
 export default function StudentsPage() {
     const [students, setStudents] = useState([]);
@@ -13,6 +13,7 @@ export default function StudentsPage() {
         name: "",
         email: "",
         year: "",
+        globalSearch: "" // New global search state
     });
 
     useEffect(() => {
@@ -28,6 +29,7 @@ export default function StudentsPage() {
                 name: filters.name,
                 email: filters.email,
                 year: filters.year,
+                globalSearch: filters.globalSearch, // Include globalSearch in query
             }).toString();
 
             const res = await fetch(`/api/students?${query}`);
@@ -47,6 +49,17 @@ export default function StudentsPage() {
     return (
         <Container>
             <h2>Student List</h2>
+
+            {/* Global Search Field */}
+            <TextField
+                name="globalSearch"
+                variant="outlined"
+                size="small"
+                label="Global Search"
+                value={filters.globalSearch}
+                onChange={handleFilterChange}
+                sx={{ mb: 2 }}
+            />
 
             <TableContainer component={Paper}>
                 <Table>
@@ -98,17 +111,28 @@ export default function StudentsPage() {
                                     onChange={handleFilterChange}
                                 />
                             </TableCell>
+                            <TableCell>
+                                Action
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {students.map((student) => (
+                        {students.length > 0 ? students.map((student) => (
                             <TableRow key={student.id_students}>
                                 <TableCell>{student.id_students}</TableCell>
                                 <TableCell>{student.name}</TableCell>
                                 <TableCell>{student.email}</TableCell>
                                 <TableCell>{student.year}</TableCell>
+                                <TableCell>
+                                    <Button variant="contained" color="primary" href={`/student-profile/${student.id_students}`}>
+                                        Profile
+                                    </Button>
+                                </TableCell>
                             </TableRow>
-                        ))}
+                        ))
+                            : <TableRow>
+                                <TableCell colSpan={5} align="center">No students found</TableCell>
+                            </TableRow>}
                     </TableBody>
                 </Table>
             </TableContainer>

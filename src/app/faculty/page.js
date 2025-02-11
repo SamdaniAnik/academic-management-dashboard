@@ -12,6 +12,7 @@ export default function FacultyPage() {
         id_faculty: "",
         name: "",
         email: "",
+        course_name: "",
     });
 
     useEffect(() => {
@@ -26,6 +27,7 @@ export default function FacultyPage() {
                 id_faculty: filters.id_faculty,
                 name: filters.name,
                 email: filters.email,
+                course_name: filters.course_name, // Added course_name filter
             }).toString();
 
             const res = await fetch(`/api/faculty?${query}`);
@@ -84,6 +86,17 @@ export default function FacultyPage() {
                                     onChange={handleFilterChange}
                                 />
                             </TableCell>
+                            <TableCell>
+                                Course
+                                <TextField
+                                    name="course_name"
+                                    variant="outlined"
+                                    size="small"
+                                    fullWidth
+                                    value={filters.course_name}
+                                    onChange={handleFilterChange}
+                                />
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -92,6 +105,11 @@ export default function FacultyPage() {
                                 <TableCell>{member.id_faculty}</TableCell>
                                 <TableCell>{member.name}</TableCell>
                                 <TableCell>{member.email}</TableCell>
+                                <TableCell>
+                                    {member.FacultyCourses.length > 0
+                                        ? member.FacultyCourses.map((fc) => fc?.Course?.name + '(' + (fc?.total_enrollment !== null ? fc?.total_enrollment : 0) + ')').join(", ")
+                                        : "No Courses"}
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
 			<body style={{ display: "flex" }}>
 				<Providers>
 					<Sidebar />
-					<main style={{ flexGrow: 1, padding: "16px", marginLeft: "240px" }}>
+					<main style={{ flexGrow: 1, padding: "16px" }}>
 						{children}
 					</main>
 				</Providers>

@@ -1,6 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Container, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Pagination } from "@mui/material";
+import {
+    Container,
+    TextField,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    Pagination,
+} from "@mui/material";
 
 export default function CoursesPage() {
     const [courses, setCourses] = useState([]);
@@ -10,6 +21,7 @@ export default function CoursesPage() {
     const [filters, setFilters] = useState({
         id_courses: "",
         name: "",
+        facultyName: "",
     });
 
     useEffect(() => {
@@ -23,6 +35,7 @@ export default function CoursesPage() {
                 limit: 10,
                 id_courses: filters.id_courses,
                 name: filters.name,
+                facultyName: filters.facultyName,
             }).toString();
 
             const res = await fetch(`/api/courses?${query}`);
@@ -70,6 +83,17 @@ export default function CoursesPage() {
                                     onChange={handleFilterChange}
                                 />
                             </TableCell>
+                            <TableCell>
+                                Faculty
+                                <TextField
+                                    name="facultyName"
+                                    variant="outlined"
+                                    size="small"
+                                    fullWidth
+                                    value={filters.facultyName}
+                                    onChange={handleFilterChange}
+                                />
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -77,6 +101,9 @@ export default function CoursesPage() {
                             <TableRow key={course.id_courses}>
                                 <TableCell>{course.id_courses}</TableCell>
                                 <TableCell>{course.name}</TableCell>
+                                <TableCell>
+                                    {course.FacultyCourses?.map((fc) => fc.Faculty?.name + '(' + (fc.total_enrollment !== null ? fc.total_enrollment : 0) + ')').join(", ") || "N/A"}
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

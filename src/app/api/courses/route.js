@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Course } from "../../models/__associations";
+import { Course, Faculty, FacultyCourse } from "../../models/__associations";
 import { Op } from "sequelize";
 
 export async function GET(req) {
@@ -9,6 +9,7 @@ export async function GET(req) {
         const limit = parseInt(searchParams.get("limit")) || 10;
         const id_courses = searchParams.get("id_courses") || "";
         const name = searchParams.get("name") || "";
+        const facultyName = searchParams.get("facultyName") || "";
 
         const offset = (page - 1) * limit;
 
@@ -18,11 +19,29 @@ export async function GET(req) {
             ...(name && { name: { [Op.like]: `%${name}%` } }),
         };
 
+        const facultyWhereCondition = facultyName
+            ? { name: { [Op.like]: `%${facultyName}%` } }
+            : {};
+
         const { rows: courses, count } = await Course.findAndCountAll({
             where: whereCondition,
+            include: [
+                {
+                    model: FacultyCourse,
+                    required: false,
+                    include: [
+                        {
+                            model: Faculty,
+                            where: facultyWhereCondition,
+                            required: facultyName ? true : false,
+                        },
+                    ],
+                },
+            ],
             limit,
             offset,
             order: [["created_at", "DESC"]],
+            distinct: true, // Ensures correct count when filtering by faculty
         });
 
         return NextResponse.json({

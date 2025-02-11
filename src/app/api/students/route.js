@@ -11,14 +11,24 @@ export async function GET(req) {
         const name = searchParams.get("name") || "";
         const email = searchParams.get("email") || "";
         const year = searchParams.get("year") || "";
+        const globalSearch = searchParams.get("globalSearch") || ""; // Get global search term
 
         const offset = (page - 1) * limit;
 
+        // Apply global search to multiple fields if it's present
         const whereCondition = {
             ...(id_students && { id_students: { [Op.eq]: id_students } }),
             ...(name && { name: { [Op.like]: `%${name}%` } }),
             ...(email && { email: { [Op.like]: `%${email}%` } }),
-            ...(year && { year: { [Op.eq]: year } }),
+            ...(year && { year: { [Op.like]: `%${year}%` } }),
+            ...(globalSearch && {
+                [Op.or]: [
+                    { id_students: { [Op.like]: `%${globalSearch}%` } },
+                    { name: { [Op.like]: `%${globalSearch}%` } },
+                    { email: { [Op.like]: `%${globalSearch}%` } },
+                    { year: { [Op.like]: `%${globalSearch}%` } }
+                ]
+            }),
         };
 
         const { rows: students, count } = await Student.findAndCountAll({
