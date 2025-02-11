@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Student } from "../../models/__associations";
+import { Course } from "../../models/__associations";
 import { Op } from "sequelize";
 
 export async function GET(req) {
@@ -7,21 +7,18 @@ export async function GET(req) {
         const { searchParams } = new URL(req.url);
         const page = parseInt(searchParams.get("page")) || 1;
         const limit = parseInt(searchParams.get("limit")) || 10;
-        const id_students = searchParams.get("id_students") || "";
+        const id_courses = searchParams.get("id_courses") || "";
         const name = searchParams.get("name") || "";
-        const email = searchParams.get("email") || "";
-        const year = searchParams.get("year") || "";
 
         const offset = (page - 1) * limit;
 
+        // Build dynamic where condition
         const whereCondition = {
-            ...(id_students && { id_students: { [Op.eq]: id_students } }),
+            ...(id_courses && { id_courses: { [Op.eq]: id_courses } }),
             ...(name && { name: { [Op.like]: `%${name}%` } }),
-            ...(email && { email: { [Op.like]: `%${email}%` } }),
-            ...(year && { year: { [Op.eq]: year } }),
         };
 
-        const { rows: students, count } = await Student.findAndCountAll({
+        const { rows: courses, count } = await Course.findAndCountAll({
             where: whereCondition,
             limit,
             offset,
@@ -29,7 +26,7 @@ export async function GET(req) {
         });
 
         return NextResponse.json({
-            students,
+            courses,
             total: count,
             totalPages: Math.ceil(count / limit),
             currentPage: page,
