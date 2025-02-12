@@ -1,0 +1,176 @@
+-- MySQL dump 10.13  Distrib 8.0.27, for macos11 (arm64)
+--
+-- Host: localhost    Database: academic_management_dashboard
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `courses`
+--
+
+DROP TABLE IF EXISTS `courses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courses` (
+  `id_courses` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_courses`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courses`
+--
+
+LOCK TABLES `courses` WRITE;
+/*!40000 ALTER TABLE `courses` DISABLE KEYS */;
+INSERT INTO `courses` VALUES (1,'Course 1','2025-02-11 11:45:02','2025-02-11 11:45:02'),(2,'Course 2','2025-02-11 11:45:02','2025-02-11 11:45:02'),(3,'Course 3','2025-02-11 11:45:02','2025-02-11 11:45:02'),(4,'Course 4','2025-02-11 11:45:02','2025-02-11 11:45:02'),(5,'Course 5','2025-02-11 11:45:02','2025-02-11 11:45:02'),(6,'Course 6','2025-02-11 11:45:02','2025-02-11 11:45:02'),(7,'Course 7','2025-02-11 11:45:02','2025-02-11 11:45:02'),(8,'Course 8','2025-02-11 11:45:02','2025-02-11 11:45:02'),(9,'Course 9','2025-02-11 11:45:02','2025-02-11 11:45:02'),(10,'Course 10','2025-02-11 11:45:02','2025-02-11 11:45:02'),(11,'Course 11','2025-02-11 11:45:02','2025-02-11 11:45:02'),(12,'Course 12','2025-02-11 11:45:02','2025-02-11 11:45:02'),(13,'Course 13','2025-02-11 11:45:02','2025-02-11 11:45:02'),(14,'Course 14','2025-02-11 11:45:02','2025-02-11 11:45:02'),(15,'Course 15','2025-02-11 11:45:02','2025-02-11 11:45:02'),(16,'Course 16','2025-02-11 11:45:02','2025-02-11 11:45:02'),(17,'Course 17','2025-02-11 11:45:02','2025-02-11 11:45:02'),(18,'Course 18','2025-02-11 11:45:02','2025-02-11 11:45:02'),(19,'Course 19','2025-02-11 11:45:02','2025-02-11 11:45:02'),(20,'Course 20','2025-02-11 11:45:02','2025-02-11 11:45:02');
+/*!40000 ALTER TABLE `courses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `faculty`
+--
+
+DROP TABLE IF EXISTS `faculty`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `faculty` (
+  `id_faculty` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_faculty`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `faculty`
+--
+
+LOCK TABLES `faculty` WRITE;
+/*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
+INSERT INTO `faculty` VALUES (1,'Dr. John Smith','john.smith@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(2,'Dr. Emily Johnson','emily.johnson@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(3,'Dr. Michael Brown','michael.brown@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(4,'Prof. Sarah Davis','sarah.davis@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(5,'Prof. James Wilson','james.wilson@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(6,'Dr. Jennifer Martinez','jennifer.martinez@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(7,'Dr. Robert Anderson','robert.anderson@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(8,'Prof. Laura Thomas','laura.thomas@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(9,'Dr. David White','david.white@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(10,'Prof. Linda Harris','linda.harris@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(11,'Dr. Kevin Martin','kevin.martin@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(12,'Prof. Angela Robinson','angela.robinson@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(13,'Dr. Brian Clark','brian.clark@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(14,'Prof. Jessica Rodriguez','jessica.rodriguez@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(15,'Dr. Charles Lewis','charles.lewis@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(16,'Prof. Amanda Walker','amanda.walker@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(17,'Dr. Daniel Hall','daniel.hall@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(18,'Prof. Melissa Allen','melissa.allen@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(19,'Dr. Jason Young','jason.young@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(20,'Prof. Kimberly King','kimberly.king@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(21,'Dr. Matthew Wright','matthew.wright@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(22,'Prof. Stephanie Scott','stephanie.scott@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(23,'Dr. Andrew Green','andrew.green@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(24,'Prof. Rebecca Adams','rebecca.adams@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(25,'Dr. Anthony Baker','anthony.baker@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(26,'Prof. Patricia Gonzalez','patricia.gonzalez@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(27,'Dr. Christopher Nelson','christopher.nelson@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(28,'Prof. Katherine Carter','katherine.carter@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(29,'Dr. Joshua Mitchell','joshua.mitchell@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(30,'Prof. Elizabeth Perez','elizabeth.perez@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(31,'Dr. William Roberts','william.roberts@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(32,'Prof. Margaret Campbell','margaret.campbell@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(33,'Dr. Thomas Murphy','thomas.murphy@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(34,'Prof. Barbara Stewart','barbara.stewart@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(35,'Dr. Steven Flores','steven.flores@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(36,'Prof. Donna Sanchez','donna.sanchez@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(37,'Dr. Joseph Reed','joseph.reed@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(38,'Prof. Carol Rivera','carol.rivera@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(39,'Dr. Paul Cooper','paul.cooper@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(40,'Prof. Deborah Howard','deborah.howard@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(41,'Dr. Mark Ward','mark.ward@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(42,'Prof. Cynthia Cox','cynthia.cox@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(43,'Dr. George Morgan','george.morgan@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(44,'Prof. Teresa Bell','teresa.bell@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(45,'Dr. Richard Bailey','richard.bailey@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(46,'Prof. Nancy Russell','nancy.russell@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(47,'Dr. Eric James','eric.james@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(48,'Prof. Brenda Griffin','brenda.griffin@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(49,'Dr. Scott Diaz','scott.diaz@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21'),(50,'Prof. Shirley Hayes','shirley.hayes@example.com','2025-02-11 11:46:21','2025-02-11 11:46:21');
+/*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `faculty_courses`
+--
+
+DROP TABLE IF EXISTS `faculty_courses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `faculty_courses` (
+  `id_faculty_courses` int NOT NULL AUTO_INCREMENT,
+  `id_faculty` int NOT NULL,
+  `id_courses` int NOT NULL,
+  `total_enrollment` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_faculty_courses`),
+  KEY `id_faculty` (`id_faculty`),
+  KEY `id_courses` (`id_courses`),
+  CONSTRAINT `faculty_courses_ibfk_1` FOREIGN KEY (`id_faculty`) REFERENCES `faculty` (`id_faculty`) ON DELETE CASCADE,
+  CONSTRAINT `faculty_courses_ibfk_2` FOREIGN KEY (`id_courses`) REFERENCES `courses` (`id_courses`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `faculty_courses`
+--
+
+LOCK TABLES `faculty_courses` WRITE;
+/*!40000 ALTER TABLE `faculty_courses` DISABLE KEYS */;
+INSERT INTO `faculty_courses` VALUES (4,1,1,2,'2025-02-11 12:43:04','2025-02-11 19:04:37'),(5,2,1,2,'2025-02-11 13:59:42','2025-02-11 18:53:14'),(6,4,3,NULL,'2025-02-11 14:06:24','2025-02-11 14:06:24'),(7,4,1,NULL,'2025-02-11 14:06:31','2025-02-11 14:06:31'),(8,4,2,NULL,'2025-02-11 14:06:47','2025-02-11 14:06:47'),(9,1,4,NULL,'2025-02-11 18:49:17','2025-02-11 18:49:17'),(10,1,9,2,'2025-02-11 18:49:25','2025-02-11 19:04:47'),(11,1,2,1,'2025-02-11 18:50:19','2025-02-11 19:49:23');
+/*!40000 ALTER TABLE `faculty_courses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `students`
+--
+
+DROP TABLE IF EXISTS `students`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `students` (
+  `id_students` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `year` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_students`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `students`
+--
+
+LOCK TABLES `students` WRITE;
+/*!40000 ALTER TABLE `students` DISABLE KEYS */;
+INSERT INTO `students` VALUES (11,'Alice Johnson','alice.johnson@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(12,'Bob Smith','bob.smith@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(13,'Charlie Brown','charlie.brown@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(14,'David White','david.white@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(15,'Emma Wilson','emma.wilson@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(16,'Frank Thomas','frank.thomas@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(17,'Grace Lee','grace.lee@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(18,'Henry Walker','henry.walker@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(19,'Isabella Scott','isabella.scott@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(20,'Jack Harris','jack.harris@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(21,'Karen Lewis','karen.lewis@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(22,'Liam Young','liam.young@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(23,'Mia Allen','mia.allen@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(24,'Noah King','noah.king@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(25,'Olivia Wright','olivia.wright@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(26,'Paul Green','paul.green@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(27,'Quinn Baker','quinn.baker@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(28,'Rachel Nelson','rachel.nelson@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(29,'Samuel Carter','samuel.carter@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(30,'Tina Mitchell','tina.mitchell@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(31,'Umar Perez','umar.perez@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(32,'Victoria Roberts','victoria.roberts@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(33,'William Hall','william.hall@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(34,'Xavier Adams','xavier.adams@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(35,'Yasmine Collins','yasmine.collins@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(36,'Zachary Stewart','zachary.stewart@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(37,'Aaron Sanchez','aaron.sanchez@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(38,'Bella Morris','bella.morris@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(39,'Carter Rogers','carter.rogers@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(40,'Diana Reed','diana.reed@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(41,'Ethan Bailey','ethan.bailey@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(42,'Fiona Hughes','fiona.hughes@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(43,'George Ramirez','george.ramirez@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(44,'Hannah Foster','hannah.foster@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(45,'Ian Patterson','ian.patterson@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(46,'Julia Brooks','julia.brooks@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(47,'Kyle Powell','kyle.powell@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(48,'Laura Torres','laura.torres@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(49,'Michael Jenkins','michael.jenkins@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(50,'Natalie Long','natalie.long@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(51,'Oscar Murphy','oscar.murphy@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(52,'Penelope Russell','penelope.russell@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(53,'Quincy Diaz','quincy.diaz@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(54,'Rebecca Hayes','rebecca.hayes@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(55,'Steven Bryant','steven.bryant@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(56,'Tracy Wood','tracy.wood@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(57,'Ulysses Simmons','ulysses.simmons@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(58,'Vanessa Butler','vanessa.butler@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(59,'Walter Barnes','walter.barnes@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(60,'Xena Morgan','xena.morgan@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(61,'Yusuf Griffin','yusuf.griffin@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(62,'Zoe Henderson','zoe.henderson@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(63,'Adam Cooper','adam.cooper@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(64,'Brooke Richardson','brooke.richardson@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(65,'Caleb Cox','caleb.cox@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(66,'Daisy Howard','daisy.howard@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(67,'Eli Ward','eli.ward@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(68,'Faith Torres','faith.torres@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(69,'Gavin Peterson','gavin.peterson@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(70,'Holly Gray','holly.gray@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(71,'Isaac James','isaac.james@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(72,'Jasmine Watson','jasmine.watson@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(73,'Kevin Brooks','kevin.brooks@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(74,'Lily Sanders','lily.sanders@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(75,'Mason Ross','mason.ross@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(76,'Nicole Diaz','nicole.diaz@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(77,'Oliver Hughes','oliver.hughes@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(78,'Paige Edwards','paige.edwards@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(79,'Quentin Lopez','quentin.lopez@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(80,'Riley Perry','riley.perry@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(81,'Sophia Powell','sophia.powell@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(82,'Tyler Murphy','tyler.murphy@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(83,'Uma Martinez','uma.martinez@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(84,'Victor Scott','victor.scott@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(85,'Wendy Bennett','wendy.bennett@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(86,'Xander Jenkins','xander.jenkins@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(87,'Yara Collins','yara.collins@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(88,'Zane Kelly','zane.kelly@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(89,'Alex Morgan','alex.morgan@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(90,'Beatrice Ross','beatrice.ross@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(91,'Cody Carter','cody.carter@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(92,'Danielle Patterson','danielle.patterson@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(93,'Evan Bailey','evan.bailey@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(94,'Felicity Cox','felicity.cox@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(95,'George Hughes','george.hughes@example.com',2024,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(96,'Harper Mitchell','harper.mitchell@example.com',2022,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(97,'Isaiah Reed','isaiah.reed@example.com',2021,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(98,'Julia Thomas','julia.thomas@example.com',2023,'2025-02-11 11:45:38','2025-02-11 11:45:38'),(99,'Kai Brown','kai.brown@example.com',2020,'2025-02-11 11:45:38','2025-02-11 11:45:38');
+/*!40000 ALTER TABLE `students` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `students_enrollment`
+--
+
+DROP TABLE IF EXISTS `students_enrollment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `students_enrollment` (
+  `id_students_enrollment` int NOT NULL AUTO_INCREMENT,
+  `id_faculty_courses` int NOT NULL,
+  `id_students` int NOT NULL,
+  `gpa` decimal(3,2) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_students_enrollment`),
+  KEY `id_faculty_courses` (`id_faculty_courses`),
+  KEY `id_students` (`id_students`),
+  CONSTRAINT `students_enrollment_ibfk_1` FOREIGN KEY (`id_faculty_courses`) REFERENCES `faculty_courses` (`id_faculty_courses`),
+  CONSTRAINT `students_enrollment_ibfk_2` FOREIGN KEY (`id_students`) REFERENCES `students` (`id_students`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `students_enrollment`
+--
+
+LOCK TABLES `students_enrollment` WRITE;
+/*!40000 ALTER TABLE `students_enrollment` DISABLE KEYS */;
+INSERT INTO `students_enrollment` VALUES (2,5,13,3.40,'2025-02-11 19:47:41','2025-02-11 19:47:41'),(3,4,11,2.60,'2025-02-11 19:47:41','2025-02-11 19:47:41'),(4,10,11,4.00,'2025-02-11 19:47:41','2025-02-11 19:47:41'),(5,5,11,3.50,'2025-02-11 19:47:41','2025-02-11 19:47:41'),(6,4,12,NULL,'2025-02-11 19:47:41','2025-02-11 19:47:41'),(7,10,12,NULL,'2025-02-11 19:47:41','2025-02-11 19:47:41'),(8,11,15,NULL,'2025-02-11 19:49:23','2025-02-11 19:49:23');
+/*!40000 ALTER TABLE `students_enrollment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'academic_management_dashboard'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-02-12 10:41:46
