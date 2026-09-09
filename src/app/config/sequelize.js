@@ -4,12 +4,12 @@ import mysql2 from 'mysql2';
 const sequelize = new Sequelize({
     dialect: 'mysql',
     dialectModule: mysql2,
-    host: '127.0.0.1',
-    port: 3306,
-    username: 'root',
-    password: '', // Add password if you have one
-    database: 'academic_management_dashboard',
-    logging: true,
+    host: process.env.DB_HOST || '127.0.0.1',
+    port: parseInt(process.env.DB_PORT || '3306', 10),
+    username: process.env.DB_USER || 'root',
+    password: process.env.DB_PASS || '',
+    database: process.env.DB_NAME || 'academic_management_dashboard',
+    logging: process.env.NODE_ENV === 'production' ? false : true,
 });
 
 
