@@ -1,4 +1,4 @@
-import { Student, StudentEnrollment } from "../../models/__associations";
+import { Student, StudentEnrollment } from "../../../lib/models/associations";
 import { NextResponse } from "next/server";
 
 export async function GET() {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { StudentEnrollment, Student, FacultyCourse, Course, Faculty } from "../../models/__associations";
+import { StudentEnrollment, Student, FacultyCourse, Course, Faculty } from "../../../lib/models/associations";
 import { Op } from "sequelize";
 
 export async function GET(req) {

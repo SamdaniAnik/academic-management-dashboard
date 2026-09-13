@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { FacultyCourse, StudentEnrollment, Faculty, Student, Course } from "../../models/__associations";
+import { FacultyCourse, StudentEnrollment, Faculty, Student, Course } from "../../../lib/models/associations";
 
 
 export async function POST(req) {

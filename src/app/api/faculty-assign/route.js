@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { FacultyCourse, Faculty, Course } from "../../models/__associations";
+import { FacultyCourse, Faculty, Course } from "../../../lib/models/associations";
 
 // ✅ GET: Fetch all assigned faculties with course names
 export async function GET() {
