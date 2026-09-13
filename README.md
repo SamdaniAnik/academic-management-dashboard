@@ -115,7 +115,7 @@ Configuration is provided through a `.env.local` file in the project root. All v
 | `DB_HOST` | MySQL host address. | `127.0.0.1` |
 | `DB_PORT` | MySQL port. | `3306` |
 | `DB_USER` | MySQL username. | `root` |
-| `DB_PASSWORD` | MySQL password. | *(empty)* |
+| `DB_PASS` | MySQL password. | *(empty)* |
 | `DB_NAME` | MySQL database name. | `academic_management_dashboard` |
 
 > **Security note:** never commit real credentials. Keep secrets in `.env.local` (already recommended) and rotate anything that gets committed accidentally.
