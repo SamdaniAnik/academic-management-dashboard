@@ -1,30 +1,20 @@
-"use client"; // This is important for client-side components in Next.js
+"use client";
 
-import ReactApexChart from "react-apexcharts"; // Correct import for React wrapper
+import { useEffect, useRef } from "react";
+import ApexCharts from "apexcharts";
 
 export default function BarChart({ data, categories }) {
-    const options = {
-        chart: {
-            type: "bar", // Define the chart type here
-        },
-        xaxis: {
-            categories, // Set categories dynamically
-        },
-    };
+    const chartRef = useRef(null);
 
-    const series = [
-        {
-            name: "Enrollments",
-            data, // Pass the data to the series
-        },
-    ];
+    useEffect(() => {
+        const chart = new ApexCharts(chartRef.current, {
+            chart: { type: "bar" },
+            xaxis: { categories },
+            series: [{ name: "Enrollments", data }],
+        });
+        chart.render();
+        return () => chart.destroy();
+    }, [data, categories]);
 
-    return (
-        <ReactApexChart
-            options={options}
-            series={series}
-            type="bar" // Ensure type is passed correctly as a string
-            height={300}
-        />
-    );
+    return <div ref={chartRef} />;
 }

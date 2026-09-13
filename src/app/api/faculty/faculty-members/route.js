@@ -1,4 +1,4 @@
-import { Faculty } from '../../../models/__associations'; // Assuming you have Faculty model set up
+import { Faculty } from "../../../../lib/models/associations"; // Assuming you have Faculty model set up
 import { NextResponse } from "next/server";
 
 

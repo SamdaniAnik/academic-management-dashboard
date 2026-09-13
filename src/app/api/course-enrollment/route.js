@@ -1,21 +1,21 @@
 import { NextResponse } from "next/server";
-import { StudentsEnrollment, FacultyCourses, Courses, Faculty } from "../../models/__associations";
+import { StudentEnrollment, FacultyCourse, Course, Faculty } from "../../../lib/models/associations";
 import { Sequelize } from "sequelize";
 
 export async function GET(req) {
     try {
-        const enrollments = await StudentsEnrollment.findAll({
+        const enrollments = await StudentEnrollment.findAll({
             attributes: [
                 [Sequelize.fn("DATE_FORMAT", Sequelize.col("created_at"), "%Y-%m"), "month"],
                 [Sequelize.fn("COUNT", Sequelize.col("id_students_enrollment")), "enrollment_count"],
             ],
             include: [
                 {
-                    model: FacultyCourses,
+                    model: FacultyCourse,
                     attributes: ["id_faculty_courses"],
                     include: [
                         {
-                            model: Courses,
+                            model: Course,
                             as: "Course",
                             attributes: ["name"],
                         },

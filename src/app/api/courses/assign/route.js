@@ -1,4 +1,4 @@
-import { Course } from "../../../models/__associations";
+import { Course } from "../../../../lib/models/associations";
 import { NextResponse } from "next/server";
 
 export async function GET() {

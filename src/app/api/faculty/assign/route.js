@@ -1,4 +1,4 @@
-import { Faculty } from "../../../models/__associations";
+import { Faculty } from "../../../../lib/models/associations";
 import { NextResponse } from "next/server";
 
 export async function GET() {
